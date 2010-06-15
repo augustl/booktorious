@@ -1,0 +1,18 @@
+h1 {
+    color: #fff;
+    background-color: #369;
+    font-size: 40px;
+    margin: 0;
+    padding: 10px;
+}
+ 
+h2 {
+    font-size: 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+.error {
+    background: #fdd;
+    padding: 10px;
+    font-size: 16px;
+}

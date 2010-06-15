@@ -2,16 +2,71 @@
 <p>A proof of concept EPUB reader implemented in JavaScript.</p>
 
 <if inputFileReadSupported>
-  <h2>Choose a file</h2>
+  <h2>Start reading</h2>
+  <p>Any EPUB from <a href="http://www.epubbooks.com/">epubbooks.com</a> should work.</p>
   <p><input type="file" /></p>
   <p><button>Read</button></p>
+  <p>You can also drag & drop a file into the browser window.</p>
 
-  <h2>Drag & drop a file</h2>
-  <p>Drag & drop an epub to this browser window.</p>
-  </if>
+  <div class="error">
+    EPUBs packed with the Java zip libraries, which is using a different Zip type than the one in the EPUB spec, doesn't work.
+  </div>
 </if>
 <else>
-  <hr />
-  <p>Your browser does not support the HTML5 <code>FileReader</code> object.</p>
-  <p>Known browsers supporting this is Chrome 6 and Firefox 3.6.</p>
+  <div class="error">
+    <p>Your browser does not support the HTML5 <code>FileReader</code> object.</p>
+    <p>It's in the HTML5 spec, but as of now, the only known browsers implementing it are:</p>
+
+    <ul>
+      <li><a href="http://getfirefox.com/">Firefox 3.6 or newer</a></li>
+      <li><a href="http://www.chromium.org/getting-involved/dev-channel">Chrome 6 or newer</a></li>
+    </ul>
+  </div>
 </else>
+
+<h2>About the project</h2>
+<p>Booktorious is an <a href="http://github.com/augustl/booktorious">open source</a> 100% JavaScript webapp free of server side logic. It is utilizing new html5 technologies to read and handle files directly in the JavaScript runtime - everything happens in JavaScript.</p>
+
+<p>It is using the following libraries (all except js-inflate written by me):</p>
+
+<dl>
+  <dt><a href="http://github.com/augustl/js-epub">js-epub</a></dt>
+  <dd>Reads the EPUB file format, providing an array DOM objects of the chapters in the book. It also converts all images in the book to data uris.</dd>
+
+  <dt><a href="http://github.com/augustl/js-unzip">js-unzip</a></dt>
+  <dd>EPUB files are packaged as Zip files.</dd>
+
+  <dt><a href="http://github.com/augustl/js-inflate">js-inflate</a></dt>
+  <dd>Zips are containers that can use many different compression formats. EPUB books use deflate (compression) and inflate (decompression). js-unzip itself doesn't implement decompression, it justs tells ut what compression algorithm the Zip file is using.</dd>
+
+  <dt><a href="http://github.com/augustl/sarge">Sarge</a></dt>
+  <dd>My own DOM library. Call me crazy.</dd>
+
+  <dt><a href="http://github.com/augustl/mediocre">Mediocre</a></dt>
+  <dd>The JavaScript application framework I wrote. Unlike Cappuccino and Sproutcore, it doesn't abstract away HTML and CSS. It's not finished or production ready at all.</dd>
+
+  <dt><a href="http://github.com/augustl/copperplate">Copperplate</a></dt>
+  <dd>JavaScript templating engine with HTML-like synax. Used by Mediocre.</dd>
+</dl>
+
+<p>All of which are are MIT licensed.</p>
+
+<h2>What it doesn't do</h2>
+
+<ul>
+  <li>Work in Internet Explorer. Sarge, the DOM library I use, is awesome. Sarge itself is just an API that doesn't do any DOM work. You use plugins to implement the actual DOM manipulation functionality. The <a href="http://github.com/augustl/booktorious/blob/446d088b520a04033a2f9630a737aa3d4d673bfe/vendor/sarge-fu.js">plugin that I use</a> is home brewed, and doesn't care about IE at all. Please blame me and not sarge for this.</li>
+  <li>Attempt to provide a great reading experience. Booktorious is just a tech demo. It doesn't remember your position in a book, everything is in one huge scroll, and so on.</li>
+</ul>
+
+<h2>Contributing/hacking</h2>
+
+<p>You need Ruby and Rubygems installed to run the Mediocre framework server.</p>
+
+<ul>
+  <li>git clone git://github.com/augustl/booktorious.git</li>
+  <li>cd booktorious</li>
+  <li>gem install mediocre</li>
+  <li>mediocre server</li>
+</ul>
+
+<p>A HTTP server is now running <code>http://localhost:9292</code>.</p>
