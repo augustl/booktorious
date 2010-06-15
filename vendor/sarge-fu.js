@@ -51,32 +51,32 @@ sarge.api.show = function (element) {
     var regexpEscape = function (string) {
         return string.replace(regexpSpecials, "\\$&");
     };
-    var classRegexp = function (class) {
-        return new RegExp("\\s?\\b" + regexpEscape(class) + "\\b\\s?");
+    var classRegexp = function (cssClass) {
+        return new RegExp("\\s?\\b" + regexpEscape(cssClass) + "\\b\\s?");
     };
 
-    sarge.api.addClass = function (element, class) {
+    sarge.api.addClass = function (element, cssClass) {
         var s = sarge(element);
-        if (!s.hasClass(class)) {
+        if (!s.hasClass(cssClass)) {
             var current = s.attr("class");
             if (current) {
-                s.attr("class", current  + " " + class);
+                s.attr("class", current  + " " + cssClass);
             } else {
-                s.attr("class", class);
+                s.attr("class", cssClass);
             }
         }
     };
 
-    sarge.api.removeClass = function (element, class) {
+    sarge.api.removeClass = function (element, cssClass) {
         var s = sarge(element);
-        var r = classRegexp(class);
-        if (s.hasClass(class)) {
+        var r = classRegexp(cssClass);
+        if (s.hasClass(cssClass)) {
             s.attr("class", s.attr("class").replace(r, ""));
         }
-    }
+    };
 
-    sarge.api.hasClass = function (element, class) {
-        var r = classRegexp(class);
+    sarge.api.hasClass = function (element, cssClass) {
+        var r = classRegexp(cssClass);
         return r.test(sarge(element).attr("class"));
-    }
+    };
 }());
