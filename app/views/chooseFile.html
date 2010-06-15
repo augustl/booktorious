@@ -1,0 +1,17 @@
+<h1>Booktorious</h1>
+<p>A proof of concept EPUB reader implemented in JavaScript.</p>
+
+<if inputFileReadSupported>
+  <h2>Choose a file</h2>
+  <p><input type="file" /></p>
+  <p><button>Read</button></p>
+
+  <h2>Drag & drop a file</h2>
+  <p>Drag & drop an epub to this browser window.</p>
+  </if>
+</if>
+<else>
+  <hr />
+  <p>Your browser does not support the HTML5 <code>FileReader</code> object.</p>
+  <p>Known browsers supporting this is Chrome 6 and Firefox 3.6.</p>
+</else>

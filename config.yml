@@ -1,0 +1,14 @@
+javascripts:
+  - vendor/js-unzip/js-unzip.js
+  - vendor/js-inflate/js-inflate.js
+  - vendor/js-epub/js-epub.js
+  - vendor/copperplate/copperplate.js
+  - vendor/lifelike/lifelike.js
+  - vendor/sarge/sarge.js
+  - vendor/sarge-eventually/sarge-eventually.js
+  - vendor/sarge-standards-css-select/sarge-standards-css-select.js
+  - vendor/sarge-fu.js
+  - app/main.js
+  - app/*/**/*.js
+
+jstestdriver_server: http://localhost:4224

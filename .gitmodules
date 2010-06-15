@@ -1,0 +1,21 @@
+[submodule "vendor/js-epub"]
+	path = vendor/js-epub
+	url = git://github.com/augustl/js-epub.git
+[submodule "vendor/js-unzip"]
+	path = vendor/js-unzip
+	url = git://github.com/augustl/js-unzip.git
+[submodule "vendor/js-inflate"]
+	path = vendor/js-inflate
+	url = git://github.com/augustl/js-inflate.git
+[submodule "vendor/sarge"]
+	path = vendor/sarge
+	url = git://github.com/augustl/sarge.git
+[submodule "vendor/sarge-eventually"]
+	path = vendor/sarge-eventually
+	url = git://github.com/augustl/sarge-eventually.git
+[submodule "vendor/sarge-standards-css-select"]
+	path = vendor/sarge-standards-css-select
+	url = git://github.com/augustl/sarge-standards-css-select.git
+[submodule "vendor/copperplate"]
+	path = vendor/copperplate
+	url = git://github.com/augustl/copperplate
