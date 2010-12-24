@@ -1,5 +1,5 @@
-booktorious.view("spineEntry", {
-    __init__: function (epub, i) {
+booktorious.spineEntry = {
+    initialize: function (epub, i) {
         this.epub = epub;
         this.href = this.epub.opf.manifest[this.epub.opf.spine[i]]["href"];
         this.doc = this.epub.files[this.href];
@@ -36,4 +36,4 @@ booktorious.view("spineEntry", {
             .attr("height", this.iframe.contentDocument.height)
             .attr("height", this.iframe.contentDocument.documentElement.scrollHeight);
     }
-});
+};

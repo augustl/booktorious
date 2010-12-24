@@ -1,11 +1,9 @@
-booktorious.view("loadEpub", {
-    __init__: function (blob) {
-        this.blob = blob;
-    },
-
-    didRenderFirstTime: function () {
+booktorious.loading = {
+    initialize: function (blob) {
         var self = this;
-        this.messageTarget = sarge(this.html).find("#message");
+        booktorious.loadTemplate("loading");
+        this.blob = blob;
+        this.messageTarget = sarge("#message");
         this.epub = new JSEpub(this.blob);
         this.epub.processInSteps(function (step, extras) {
             self.step(step, extras);
@@ -20,7 +18,9 @@ booktorious.view("loadEpub", {
         } else if (stepId === 3 || stepId === 4) {
             this.addMessage("Post processing")
         } else if (stepId === 5) {
-            new booktorious.views.reader(this.epub).renderIn("#wrapper");
+            booktorious
+                .create(booktorious.reader)
+                .initialize(this.epub);
         } else if (stepId === -1) {
             this.addMessage("The file does not seem to be an EPUB.");
         } else if (stepId < 0) {
@@ -33,4 +33,4 @@ booktorious.view("loadEpub", {
     addMessage: function (msg) {
         this.messageTarget.html(msg);
     }
-});
+};
