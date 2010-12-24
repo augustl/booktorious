@@ -1,0 +1,3 @@
+HTML5 EPUB reader proof of concept.
+
+To get started, run a HTTP server with public/ as document root. Or use file:// to open public/index.html, but that won't work in Chrome.
