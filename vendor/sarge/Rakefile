@@ -1,0 +1,4 @@
+desc "Generates the documentation in doc/."
+task :generate_doc do
+  exec("asciidoc -a toc doc/api.txt")
+end

@@ -1,0 +1,10 @@
+# My own unreleased dependency manager. Sorry. Will release it soon.
+
+group :test do
+  path "test/lib"
+
+  git "git://gitorious.org/sinon/sinon.git", 
+    :files => ["src/sinon.js", "src/sinon/spy.js", "src/sinon/mock.js", "src/sinon/stub.js", "src/sinon/*.js"],
+    :out => "sinon.js"
+end
+

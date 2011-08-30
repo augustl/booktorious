@@ -1,0 +1,5 @@
+h2. sarge-eventually
+
+Adds basic event binding and event triggering to "sarge":http://github.com/augustl/sarge.
+
+Tested on IE6-8, Opera 10, Firefox 3.0-3.6, Chrome 5, Safari 5

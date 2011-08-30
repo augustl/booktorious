@@ -1,0 +1,47 @@
+h2. Copperplate.
+
+JavaScript templating engine with HTML syntax.
+
+HTML syntax is a good idea. It blends in with your text editors HTML mode. Proper indentation in if/else blocks with no editor configuration, yay!
+
+h2. Control flow
+
+If and else.
+
+<pre><code>var t = new Copperplate("Hello, <if thing>World!</if><else>Moon.</else>");
+
+t.html({thing: true}); // "Hello, World!"
+t.html({thing: false}); // "Hello, Moon."</code></pre>
+
+Elseif.
+
+<pre><code>var t = new Copperplate("<if one>One</if><elseif two>Two</elseif>");
+
+t.html({one: true, two: false}); // "One"
+t.html({one: false, two: true}); // "Two"
+t.html({one: false, two: false}); // ""</code></pre>
+
+Nesting.
+
+<pre><code>var t = new Copperplate(""
+               + "<if one>"
+               +   "<if two>two</if>"
+               +   "<else>"
+               +     "<if three>three</if>"
+               +   "</else>"
+               + "</if>");
+
+t.html({one: true, two: true, three: false}); // "two"
+t.html({one: true, two: false, three: false}); // ""
+t.html({one: true, two: false, three: true}); // "three"
+t.html({one: false, two: false, three: true}); // ""
+</code></pre>
+
+
+h2. Variables
+
+The variable syntax is <code>{{foo}}</code>.
+
+<pre><code> var t = new Copperplate('Hello, {{thing}}!');
+t.html({thing: "World"}) // "Hello, World!";
+t.html({thing: "Moon"})  // "Hello, Moon!";</code></pre>

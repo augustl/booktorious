@@ -1,0 +1,11 @@
+h2. Sarge
+
+Cross browser JavaScript DOM library.
+
+Sarge itself does not implement any functionality for DOM interaction, this is provided via plugins.
+
+That's great becaue you can choose how hacky the implementation of the DOM interaction is. Writing a HTML5 app and don't care about IE? Great, use a lightweight hack-free plugin. Need to support IE? Use a hackish IE plugin.
+
+In other words, you get to use the same top level API - sarge itself - and change the implementation of the DOM interaction via plugins.
+
+Work in progress.

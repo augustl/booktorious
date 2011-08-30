@@ -1,0 +1,185 @@
+Sarge 1.0 plugin API documentation
+==================================
+
+Documentation for the API that Sarge plugins use to implement functionality in Sarge.
+
+:Author: August Lilleaas
+:Email: <august.lilleaas@gmail.com>
+
+:All elements: The function is called on all the elements in the sarge instance.
+:One element: The function is only called on the first element in the sarge instance.
+
+Sarge Core
+----------
+
+cssSelect(selector)
+~~~~~~~~~~~~~~~~~~~
+
+Performs a CSS selector query on `document`. Returns an array.
+
+[source,javascript]
+sarge("a css selector");
+
+cssSelect(selector,rootNode)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Like `cssSelect`, but runs the query on `rootNode` instead of `document`.
+
+[source,javascript]
+sarge(foo).find("a css selector");
+
+
+Attributes
+----------
+
+attr(name)
+~~~~~~~~~~
+
+Gets an attribute.
+
+[source,javascript]
+sarge(foo).attr("id");
+
+{oneelement}
+
+attr(name,value)
+~~~~~~~~~~~~~~~~
+
+Sets an attribute.
+
+[source,javascript]
+sarge(foo).attr("href", myHref);
+
+{allelements}
+
+addClass(class)
+~~~~~~~~~~~~~~~
+
+Adds a class to the elements.
+
+[source,javascript]
+sarge(foo).addClass("my_class");
+
+{allelements}
+
+removeClass(class)
+~~~~~~~~~~~~~~~~~~
+
+Removes a class to the elements.
+
+[source,javascript]
+sarge(foo).removeClass("my_class");
+
+{allelements}
+
+hasClass(class)
+~~~~~~~~~~~~~~~
+
+Checks if the element has a class.
+
+[source,javascript]
+sarge(foo).hasClass("my_class");
+
+{oneelement}
+
+CSS
+---
+
+hide()
+~~~~~~
+
+Hides the elements.
+
+[source,javascript]
+sarge(foo).hide();
+
+{allelements}
+
+show()
+~~~~~~
+
+Shows the elements.
+
+[source,javascript]
+sarge(foo).show();
+
+{allelements}
+
+Events
+------
+
+event(name)
+~~~~~~~~~~~
+
+Triggers an event.
+
+[source,javascript]
+sarge(foo).event("click");
+
+{allelements}
+
+event(name, function)
+~~~~~~~~~~~~~~~~~~~~~
+
+Binds an event.
+
+[source,javascript]
+sarge(foo).event("click", function () { ... });
+
+{allelements}
+
+
+Manipulation
+------------
+
+append(thing)
+~~~~~~~~~~~~~
+
+Appends HTML to an element.
+
+[source,javascript]
+sarge(foo).append(thing);
+
+{allelements}
+
+clear()
+~~~~~~~
+
+Removes all content from the elements.
+
+[source,javascript]
+sarge(foo).clear();
+
+{allelements}
+
+html()
+~~~~~~
+
+Gets the inner HTML.
+
+[source,javascript]
+sarge(foo).html();
+
+{oneelement}
+
+html(myHtml)
+~~~~~~~~~~~~
+
+Sets the inner HTML of an element.
+[source,javascript]
+sarge(foo).html(myHtml);
+
+{allelements}
+
+Traversing
+----------
+
+find(selector)
+~~~~~~~~~~~~~~
+
+Finds children by CSS selector. Returns a new sarge instance.
+
+[source,javascript]
+sarge(foo).find(".my_thing");
+
+{oneelement}
